@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phạm Việt Quang - Giới thiệu bản thân</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef5ff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hiệu ứng header */
+        header {
+            background: linear-gradient(135deg, #1e58ff, #0094ff);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            animation: slideDown 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover avatar */
+        header img:hover {
+            transform: scale(1.08);
+        }
+
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s ease;
+        }
+
+        /* Fade-in khi cuộn */
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #1e58ff;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: #1e58ff;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 20px;
+            margin: 6px;
+            font-size: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover hiệu ứng phóng nhẹ */
+        .skills span:hover {
+            transform: scale(1.12);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1s ease;
+        }
+
+        footer.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQA" alt="Avatar">
+    <h1>Phạm Việt Quang</h1>
+    <p>“Một người trẻ năng động và luôn cháy hết mình với đam mê.”</p>
+</header>
+
+<section>
+    <h2>🌟 Giới thiệu</h2>
+    <p class="info">
+        Xin chào! Mình là <b>Phạm Việt Quang</b>, một người yêu thích công nghệ và luôn thích khám phá điều mới. 
+        Mình có đam mê lớn với <b>chơi game</b> — vừa giải trí, vừa rèn phản xạ và tư duy chiến thuật.
+    </p>
+</section>
+
+<section>
+    <h2>📘 Thông tin cá nhân</h2>
+    <p class="info">
+        ➤ Họ tên: <b>Phạm Việt Quang</b> <br>
+        ➤ Sống tại: <b>Việt Nam</b> <br>
+        ➤ Email: <b>(bạn có thể bổ sung)</b> <br>
+        ➤ Sở thích: <b>Chơi game, công nghệ, giải trí</b>
+    </p>
+</section>
+
+<section>
+    <h2>⚡ Kỹ năng</h2>
+    <div class="skills">
+        <span>Giao tiếp</span>
+        <span>Tư duy logic</span>
+        <span>Teamwork</span>
+        <span>Game skills</span>
+    </div>
+</section>
+
+<section>
+    <h2>🎯 Mục tiêu</h2>
+    <p class="info">
+        • Ngắn hạn: <b>Cải thiện kỹ năng, hoàn thiện bản thân mỗi ngày.</b><br>
+        • Dài hạn: <b>Làm việc trong lĩnh vực mình yêu thích và tạo dấu ấn riêng.</b>
+    </p>
+</section>
+
+<footer>
+    © 2025 — Trang web cá nhân của Phạm Việt Quang.
+</footer>
+
+<script>
+    // Hiệu ứng fade-in khi cuộn
+    const sections = document.querySelectorAll("section");
+    const footer = document.querySelector("footer");
+
+    function checkVisible() {
+        let trigger = window.innerHeight * 0.85;
+        sections.forEach(sec => {
+            let top = sec.getBoundingClientRect().top;
+            if (top < trigger) {
+                sec.classList.add("show");
+            }
+        });
+
+        let footerTop = footer.getBoundingClientRect().top;
+        if (footerTop < trigger) {
+            footer.classList.add("show");
+        }
+    }
+
+    window.addEventListener("scroll", checkVisible);
+    window.addEventListener("load", checkVisible);
+</script>
+
+</body>
+</html>
